@@ -16,6 +16,8 @@ export default function App() {
     id === 'bad' && setBad(state => state + 1);
   };
 
+  const feedbackValue = { good, neutral, bad };
+
   const countTotalFeedback = () => {
     return good + neutral + bad;
   };
@@ -28,7 +30,7 @@ export default function App() {
     <>
       <Section title={'Please leave feedback'}>
         <FeedbackOptions
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys(feedbackValue)}
           onLeaveFeedback={onLeaveFeedback}
         />
       </Section>
